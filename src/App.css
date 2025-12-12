@@ -1,38 +1,600 @@
-.App {
-  text-align: center;
+/* ===== GENERAL ===== */
+/* ضبط الإعدادات العامة للصفحة */
+body {
+  margin: 0; /* إزالة الهوامش الافتراضية */
+  padding: 0; /* إزالة الحشوات الافتراضية */
+  font-family: "Inter", sans-serif; /* تحديد خط الموقع */
+  background: #f4f6fa; /* لون خلفية خفيف */
+  color: #1e1e1e; /* لون النص الأساسي */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ===== NAVBAR ===== */
+/* شريط التنقل العلوي */
+.header {
+  background: linear-gradient(to right, #e3efff, #ffffff); /* تدرج لوني */
+  padding: 18px 40px; /* مسافات داخلية */
+  display: flex; /* محاذاة العناصر */
+  justify-content: space-between; /* توزيع العناصر يمين ويسار */
+  align-items: center; /* محاذاة عمودية */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* ظل خفيف */
+  position: sticky; /* يبقى مثبت بالأعلى عند التمرير */
+  top: 0; /* تثبيته في أعلى الصفحة */
+  z-index: 20; /* جعله فوق باقي العناصر */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* نص شعار الموقع */
+.logo {
+  font-size: 22px; /* حجم الخط */
+  font-weight: 700; /* جعل الخط سميك */
+  color: #0056d6; /* لون أزرق */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* حاوية الروابط */
+.nav {
+  display: flex; /* ترتيب الروابط أفقياً */
+  gap: 22px; /* مسافة بين الروابط */
+}
+
+/* نمط الروابط */
+.nav-link {
+  position: relative; /* للسماح بإضافة خط أسفل الرابط */
+  text-decoration: none; /* إزالة الخط السفلي */
+  color: #333; /* لون النص */
+  font-size: 15px; /* حجم الخط */
+  font-weight: 500; /* سماكة الخط */
+  padding-bottom: 4px; /* مسافة أسفل الرابط */
+  transition: 0.25s ease; /* تأثير حركة */
+}
+
+/* لون الرابط عند تمرير الماوس */
+.nav-link:hover {
+  color: #0056d6;
+}
+
+/* شريط أسفل الرابط */
+.nav-link::after {
+  content: ""; /* إضافة عنصر وهمي */
+  position: absolute; /* تحديد موقعه */
+  left: 0;
+  bottom: 0px;
+  width: 0%; /* يبدأ بدون عرض */
+  height: 2px; /* سماكة الخط */
+  background: #0056d6; /* لون الخط */
+  transition: width 0.3s ease; /* توسيع الخط */
+}
+
+/* عند تمرير الماوس يكبر عرض الخط */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* الرابط المفعّل حالياً */
+.nav-link.active {
+  color: #0056d6;
+}
+
+.nav-link.active::after {
+  width: 100%; /* خط كامل */
+}
+
+/* ===== HERO SECTION ===== */
+/* المقطع العلوي الرئيسي */
+.hero-section {
+  height: 380px; /* ارتفاع القسم */
+  background-image: url("home.jpg"); /* الصورة الخلفية */
+  background-size: cover; /* تغطية كاملة */
+  background-position: center; /* محاذاة الصورة */
+  position: relative; /* لطبقة التغميق */
+  display: flex; /* محاذاة العناصر */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+/* طبقة تغميق فوق الصورة */
+.overlay {
+  position: absolute; /* تغطية كاملة */
+  inset: 0; /* ملء كامل القسم */
+  background: rgba(0,0,0,0.45); /* تغميق */
+}
+
+/* المحتوى النصي فوق الصورة */
+.hero-content {
+  position: relative; /* لمنع تغطية النص */
+  color: white; /* لون النص */
+  text-align: center; /* محاذاة وسط */
+  padding: 20px;
+}
+
+/* عنوان الهيرو */
+.hero-content h1 {
+  font-size: 40px; /* حجم كبير */
+  font-weight: 700; /* عريض */
+}
+
+/* فقرة الهيرو */
+.hero-content p {
+  margin-top: 10px;
+  font-size: 18px;
+  max-width: 600px; /* الحد الأقصى للعرض */
+}
+
+/* زر Get Started */
+.hero-btn {
+  margin-top: 20px;
+  padding: 10px 26px;
+  background: #ffffff; /* خلفية بيضاء */
+  color: #0056d6; /* نص أزرق */
+  border: 2px solid #0056d6; /* إطار أزرق */
+  border-radius: 6px; /* زوايا دائرية */
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+/* تغيير لون الزر عند المرور */
+.hero-btn:hover {
+  background: #0056d6;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ===== FEATURES SECTION ===== */
+/* قسم الميزات والكروت */
+.features {
+  padding: 60px 20px; /* مسافات داخلية */
+  text-align: center; /* محاذاة مركزية */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* عنوان قسم الميزات */
+.section-title {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+/* شبكة الكروت */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 220px); /* 4 كروت */
+  justify-content: center;
+  gap: 28px; /* مسافات */
+}
+
+/* الكرت */
+.feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10); /* ظل */
+  transition: 0.25s ease;
+}
+
+/* حركة عند المرور */
+.feature-card:hover {
+  transform: translateY(-8px); /* رفع */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ألوان الأيقونات */
+.blue-icon { color: #007bff; }
+.green-icon { color: #2ecc71; }
+.red-icon { color: #e74c3c; }
+.purple-icon { color: #9b59b6; }
+
+/* لون الحد العلوي للكروت */
+.feature-card.blue { border-top: 4px solid #007bff; }
+.feature-card.green { border-top: 4px solid #2ecc71; }
+.feature-card.red { border-top: 4px solid #e74c3c; }
+.feature-card.purple { border-top: 4px solid #9b59b6; }
+
+/* تنسيق الأيقونة */
+.icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+/* ===== CTA SECTION ===== */
+/* قسم الدعوة لاتخاذ إجراء */
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ecf3ff; /* خلفية فاتحة */
+  margin-top: 60px;
+  border-radius: 12px;
+}
+
+/* عنوان CTA */
+.cta-section h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+/* نص CTA */
+.cta-section p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* زر CTA */
+.cta-btn {
+  padding: 12px 28px;
+  background: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.25s ease;
+  font-weight: 600;
+  text-decoration: none; /* إزالة خط الرابط */
+  display: inline-block; /* يظهر كزر */
+}
+
+/* لون الزر عند المرور */
+.cta-btn:hover {
+  background: #005ad6;
+}
+
+/* ===== RESPONSIVE ===== */
+/* تجاوب الشاشات */
+@media (max-width: 900px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* عمودين */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr; /* عمود واحد */
   }
+
+  .hero-content h1 {
+    font-size: 30px; /* تصغير العنوان */
+  }
+}
+
+
+/* ------------------------------------------------------
+   GLOBAL PAGE STYLE
+-------------------------------------------------------*/
+
+body {
+  background: #f3f6fc;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Title */
+.exp-title {
+  font-size: 34px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Wrapper */
+.exp-wrapper {
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ------------------------------------------------------
+   ADD NEW EXPERIMENT FORM
+-------------------------------------------------------*/
+
+.add-exp-form {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-bottom: 35px;
+  border: 1px solid #e2e6ee;
+}
+
+.add-exp-form h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.add-exp-form input,
+.add-exp-form textarea,
+.add-exp-form select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cdd5e0;
+  font-size: 15px;
+  margin-bottom: 14px;
+  outline: none;
+  transition: 0.2s;
+  background: #fafbff;
+}
+
+.add-exp-form input:focus,
+.add-exp-form textarea:focus,
+.add-exp-form select:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 3px #0077ff5e;
+}
+
+.add-exp-btn {
+  background: linear-gradient(90deg, #006eff, #004fcc);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-exp-btn:hover {
+  background: linear-gradient(90deg, #005ee0, #003fab);
+}
+
+/* Preview image */
+.preview-img {
+  width: 130px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #d7dce5;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------------------------------
+   GRID OF CARDS
+-------------------------------------------------------*/
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ------------------------------------------------------
+   MODERN CARD STYLE
+-------------------------------------------------------*/
+
+.modern-card {
+  position: relative;
+  height: 250px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.12);
+  transition: 0.3s;
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid #e3e6ef;
+  backdrop-filter: blur(3px);
+}
+
+.modern-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.18);
+}
+
+/* ------------------------------------------------------
+   CARD ACTION ICONS (VIEW, EDIT, DELETE)
+-------------------------------------------------------*/
+
+.card-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  background: rgba(255,255,255,0.88);
+  border: none;
+  padding: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.card-actions button:hover {
+  background: #006eff;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ------------------------------------------------------
+   CARD CONTENT
+-------------------------------------------------------*/
+
+.exp-content {
+  width: 100%;
+  background: rgba(255,255,255,0.92);
+  padding: 15px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.exp-content h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.exp-content p {
+  margin: 6px 0 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Status Tag */
+.status-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-tag.success {
+  background: #d7f7d7;
+  color: #0c7a0c;
+}
+
+.status-tag.failed {
+  background: #ffdede;
+  color: #b90d0d;
+}
+
+/* ------------------------------------------------------
+   MODAL OVERLAY
+-------------------------------------------------------*/
+
+.exp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInOverlay 0.25s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ------------------------------------------------------
+   MODAL BOX
+-------------------------------------------------------*/
+
+.exp-modal {
+  width: 450px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+  animation: popUp 0.3s ease;
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.exp-modal h2 {
+  margin-bottom: 10px;
+}
+
+.exp-modal p {
+  color: #555;
+}
+
+.close-modal {
+  background: #006eff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 22px;
+  transition: 0.2s;
+}
+
+.close-modal:hover {
+  background: #0054c4;
+}
+
+/* ------------------------------------------------------
+   RESPONSIVE FIXES
+-------------------------------------------------------*/
+
+@media (max-width: 600px) {
+  .exp-modal {
+    width: 90%;
+  }
+
+  .add-exp-form {
+    padding: 15px;
+  }
+}
+/* -------- Card Style -------- */
+
+.exp-card {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.12);
+  transition: 0.25s ease;
+  border: 1px solid #e4e6ef;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.18);
+}
+
+/* صورة */
+.exp-card-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* نص */
+.exp-card-content {
+  padding: 18px;
+}
+
+.exp-card-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.view-btn {
+  margin-top: 12px;
+  background: #006eff;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #0052c9;
+}
+
+/* الحالة */
+.status-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.status-tag.success {
+  background: #d4f8d4;
+  color: #0a7a0a;
+}
+
+.status-tag.failed {
+  background: #ffd9d9;
+  color: #b10f0f;
 }

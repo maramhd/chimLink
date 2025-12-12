@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/chimLink/static/css/main.d2494a4c.css",
+    "main.js": "/chimLink/static/js/main.72cb8923.js",
+    "static/media/home.jpg": "/chimLink/static/media/home.cb24ed1928f02ebfe956.jpg",
+    "static/media/ph1.png": "/chimLink/static/media/ph1.7b8dbb13fbd76b9998f5.png",
+    "static/media/ph2.jpg": "/chimLink/static/media/ph2.7fb5a92150c1d72e596d.jpg",
+    "index.html": "/chimLink/index.html",
+    "main.d2494a4c.css.map": "/chimLink/static/css/main.d2494a4c.css.map",
+    "main.72cb8923.js.map": "/chimLink/static/js/main.72cb8923.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2494a4c.css",
+    "static/js/main.72cb8923.js"
+  ]
+}

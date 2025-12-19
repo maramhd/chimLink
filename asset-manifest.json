@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chimLink/static/css/main.a53fa4ec.css",
-    "main.js": "/chimLink/static/js/main.d38d1e74.js",
+    "main.css": "/chimLink/static/css/main.813b1d82.css",
+    "main.js": "/chimLink/static/js/main.ce379798.js",
     "static/media/home.jpg": "/chimLink/static/media/home.cb24ed1928f02ebfe956.jpg",
     "static/media/ph1.png": "/chimLink/static/media/ph1.7b8dbb13fbd76b9998f5.png",
     "static/media/LOGO.png": "/chimLink/static/media/LOGO.dbb1c1858d6b7e815751.png",
@@ -10,11 +10,11 @@
     "static/media/p2.jfif": "/chimLink/static/media/p2.f426d4a58db199a79bf3.jfif",
     "static/media/p1.jfif": "/chimLink/static/media/p1.054721426f83e1828ed6.jfif",
     "index.html": "/chimLink/index.html",
-    "main.a53fa4ec.css.map": "/chimLink/static/css/main.a53fa4ec.css.map",
-    "main.d38d1e74.js.map": "/chimLink/static/js/main.d38d1e74.js.map"
+    "main.813b1d82.css.map": "/chimLink/static/css/main.813b1d82.css.map",
+    "main.ce379798.js.map": "/chimLink/static/js/main.ce379798.js.map"
   },
   "entrypoints": [
-    "static/css/main.a53fa4ec.css",
-    "static/js/main.d38d1e74.js"
+    "static/css/main.813b1d82.css",
+    "static/js/main.ce379798.js"
   ]
 }

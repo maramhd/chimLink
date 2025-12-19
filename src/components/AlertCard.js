@@ -15,13 +15,18 @@ export default function AlertCard({ alert }) {
       <FaCheckCircle className="alert-icon green" />
     );
 
+  
   return (
     <div className={`alert-card ${alert.type || ""}`}>
-      <div className="icon-box">{icon}</div>
-      <div className="alert-content">
-        <h4>{alert.title || "Untitled Alert"}</h4>
-        <p>{alert.message || ""}</p>
+      <div className="alert-left">
+        <div className="icon-box">{icon}</div>
+
+        <div className="alert-content">
+          <h4>{alert.title || "Untitled Alert"}</h4>
+          <p>{alert.message || ""}</p>
+        </div>
       </div>
+
       <div className="alert-date">{alert.date || ""}</div>
     </div>
   );

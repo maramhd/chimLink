@@ -29,6 +29,14 @@ export default function Navbar({ user, setUser }) {
         <Link to="/guidelines" className={`nav-link ${location.pathname === "/guidelines" ? "active" : ""}`} onClick={() => setOpen(false)}>Guidelines</Link>
         <Link to="/settings" className={`nav-link ${location.pathname === "/settings" ? "active" : ""}`} onClick={() => setOpen(false)}>Settings</Link>
 
+      <a
+          href="https://maramhd.github.io/alhaddadprotofolio/contactt.html"
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact
+        </a>
         {/* user display on nav (desktop) */}
         <div style={{ marginLeft: 12 }}>
           {user ? <AccountDropdown user={user} setUser={setUser} /> : <Link to="/login" className="nav-link">Login</Link>}

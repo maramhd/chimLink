@@ -45,28 +45,29 @@ function App() {
     document.head.appendChild(link);
   }, []);
 
-  return (
-    <Router>
-      <Navbar user={user} setUser={setUser} />
-      <Routes>
-        {!user ? (
-          <>
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route path="*" element={<Navigate to="/login" replace />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Home user={user} />} />
-            <Route path="/experiments" element={<Experiments />} />
-            <Route path="/materials" element={<Materials />} />
-            <Route path="/alerts" element={<Alerts />} />
-            <Route path="/guidelines" element={<Guidelines />} />
-            <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </>
-        )}
-      </Routes>
-    </Router>
+  return (<Router>
+  {user && <Navbar user={user} setUser={setUser} />}
+
+  <Routes>
+    {!user ? (
+      <>
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </>
+    ) : (
+      <>
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/experiments" element={<Experiments user={user} />} />
+        <Route path="/materials" element={<Materials />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/guidelines" element={<Guidelines user={user} />} />
+        <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </>
+    )}
+  </Routes>
+</Router>
+
   );
 }
 
